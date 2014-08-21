@@ -1,0 +1,46 @@
+{
+  "mockDirectory": "./mocks/",
+  "staticDirectory": "/file/system/path/to/static/directory",
+  "staticPath": "/web/path/to/static/directory",
+  "quiet": false,
+  "port": "7878",
+  "latency": 2000,
+  "webServices": {
+    "projects" : {
+      "mockFile": "projects.json",
+      "latency": 50,
+      "verbs": ["get"]
+    },
+    "projects/p/tiny-project": {
+      "mockFile": "projects/tiny-project.json",
+      "verbs": ["get"]
+    },
+    "projects/p/tiny-project/iterations/i/1": {
+      "mockFile": "projects/tiny-project/1.json",
+      "verbs": ["get"]
+    },
+    "projects/p/tiny-project/iterations/i/1/r": {
+      "mockFile": "projects/tiny-project/1/r.json",
+      "verbs": ["get"]
+    },
+    "projects/p/tiny-project/iterations/i/1/r/hello.txt": {
+      "mockFile": "projects/tiny-project/1/hello.json",
+      "verbs": ["get"]
+    },
+    "first": {
+      "mockFile": "king.json",
+      "latency": 20,
+      "verbs": ["get"]
+    },
+    "second": {
+      "verbs": ["delete", "post"],
+      "responses": {
+        "delete": {"httpStatus": 204},
+        "post": {
+          "contentType": "foobar",
+          "mockFile": "king.json"
+        }
+      }
+    }
+  }
+}

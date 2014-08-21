@@ -1,0 +1,24 @@
+{
+  "name": "fake-zanata-server",
+  "version": "1.0.0",
+  "description": "A simple REST server that presents a REST API similar to Zanata Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "github.com/davidmason",
+  "license": "MIT",
+  "dependencies": {
+    "apimocker": "^0.3.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zanata/fake-zanata-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zanata/fake-zanata-server/issues"
+  },
+  "homepage": "https://github.com/zanata/fake-zanata-server"
+}
