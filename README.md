@@ -29,22 +29,27 @@ Start the server with the default port:
 ```
 [prompt]$ npm start
 ...
-Mock server listening on port 7878
+REST endpoint listening at http://localhost:7878/zanata/rest, with latency 50..500
 ```
 
-or specify a port:
+you can specify a port, base REST path, and latency:
 
 ```
-[prompt]$ npm start --port=1234
+[prompt]$ npm start --port=1234 --latency=1000..5000 --path=rest
 ...
-Mock server listening on port 1234
+REST endpoint listening at http://localhost:1234/rest, with latency 1000..5000
 ```
+
+ - port: any available port to use
+ - path: path to prepend to the local portion of each resource URL
+ - latency: plain number or range of milliseconds to delay each response
+
 
 
 Get resources from any of the endpoints listed under 'Endpoints' below:
 
 ```
-[prompt]$ curl http://localhost:7878/projects
+[prompt]$ curl http://localhost:7878/zanata/rest/projects
 [{
     "id": "tiny-project",
     "defaultType": "File",
@@ -61,7 +66,7 @@ Get resources from any of the endpoints listed under 'Endpoints' below:
     "status": "ACTIVE"
   }
 ]
-[prompt]$ curl http://localhost:7878/projects/p/tiny-project
+[prompt]$ curl http://localhost:7878/zanata/rest/projects/p/tiny-project
 {
   "id": "tiny-project",
   "defaultType": "File",
@@ -82,7 +87,7 @@ Get resources from any of the endpoints listed under 'Endpoints' below:
   }],
   "status": "ACTIVE"
 }
-[prompt]$ curl http://localhost:7878/projects/p/tiny-project/iterations/i/1/r
+[prompt]$ curl http://localhost:7878/zanata/rest/projects/p/tiny-project/iterations/i/1/r
 [{
     "name": "hello.txt",
     "contentType": "text/plain",

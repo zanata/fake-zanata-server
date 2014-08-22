@@ -10,7 +10,7 @@
   "author": "github.com/davidmason",
   "license": "MIT",
   "dependencies": {
-    "apimocker": "^0.3.1"
+    "interfake": "^1.9.0"
   },
   "devDependencies": {},
   "repository": {
