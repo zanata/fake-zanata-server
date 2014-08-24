@@ -116,9 +116,24 @@ A minimal project with a single version containing a single document.
 
 ## Endpoints
 
+Here is a list of the available endpoint URLs. Some are experimental
+URLs for use in development, that are not yet present in the real
+Zanata server.
 
-projects
-projects/p/{projectSlug}
-projects/p/{projectSlug}/iterations/i/{versionSlug}
-projects/p/{projectSlug}/iterations/i/{versionSlug}/r
-projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}
+### Real endpoints
+
+These exist on the real Zanata server
+
+ - projects
+ - projects/p/{projectSlug}
+ - projects/p/{projectSlug}/iterations/i/{versionSlug}
+ - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
+ - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}
+
+### Fake endpoints
+
+These do not exist on the real Zanata server, but may be implemented there
+in the future.
+
+ - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales
+   - get a list of the enabled translation locales for a project-version
