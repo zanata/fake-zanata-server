@@ -124,11 +124,14 @@ Zanata server.
 
 These exist on the real Zanata server
 
- - projects
- - projects/p/{projectSlug}
- - projects/p/{projectSlug}/iterations/i/{versionSlug}
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}
+ - Projects, Strings and Translations
+   - projects
+   - projects/p/{projectSlug}
+   - projects/p/{projectSlug}/iterations/i/{versionSlug}
+   - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
+   - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}
+ - Statistics
+   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{docId}
 
 ### Fake endpoints
 
