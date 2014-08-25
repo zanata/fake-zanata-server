@@ -15,6 +15,16 @@ out proposed REST endpoints for Zanata during API design.
 Requires [Node.js](http://nodejs.org/).
 
 
+## Contributions
+
+To contribute to this server, create a branch or fork with your changes
+and submit a pull request for review.
+
+Do not commit directly to master - it is not a maintainable practice. I
+will revert, rewrite or annihilate commits that are not reviewed through
+a pull request.
+
+
 ## Usage
 
 Install dependencies:
