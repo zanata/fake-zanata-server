@@ -139,9 +139,13 @@ These exist on the real Zanata server
    - projects/p/{projectSlug}
    - projects/p/{projectSlug}/iterations/i/{versionSlug}
    - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
-   - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}
+   - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{encodedDocId*}
  - Statistics
-   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{docId}
+   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}
+
+
+*Note: docId is encoded by replacing `/` with `,`.
+
 
 ### Fake endpoints
 
