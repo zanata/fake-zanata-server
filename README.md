@@ -154,3 +154,16 @@ in the future.
 
  - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales
    - get a list of the enabled translation locales for a project-version
+
+ - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}/states/{localeId}
+   - get a list of all text flow ids with their state in a given locale
+   - may want to allow query parameters for start index and limit, so that
+     simple clients can use paging. Range header fields may be appropriate for
+     this.
+   - includes both the numeric database id (id) and the resource id (resId)
+   - e.g.
+     [
+       { id: 1234, resId: "first", state: "translated" },
+       { id: 1237, resId: "second", state: "fuzzy" },
+       { id: 1238, resId: "third", state: "untranslated" }
+     ]
