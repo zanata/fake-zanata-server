@@ -172,3 +172,25 @@ in the future.
 
   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
     - get words and message statistic of given document in given locale
+
+ - endpoints for getting string details: source, translation, or both
+   - paths from root REST url:
+     - source?ids={list-of-ids}
+     - trans/{localeId}?ids={list-of-ids}
+       - {document-path}/translations/{localeId} is already available, but is
+         not quite right for what the editor will use.
+     - source+trans/{localeId}?ids={list-of-ids}
+   - response will be an object with the ids as keys, and the data as values.
+   - data is an object in the form { source: <sourceData>, <localeId>: <translationData> }
+     and may exclude one or the other key depending which method is used.
+   - these include the full detail for the head revision in a given language of
+     some text flows.
+   - may respond with 403 (Forbidden) if the list of ids is too long. The
+     limit should be set at a sufficiently high number as to prevent the editor
+     getting a 403 response in normal operation.
+   - numeric ids are used since they pose less challenges with encoding.
+     - endpoints under a document resource may be added later that use a list of
+       resIds. The path for such endpoints is purposely very different because
+       resId is only unique within a document, and allowing both id and resId on
+       the same resource could cause a lot of confusion.
+

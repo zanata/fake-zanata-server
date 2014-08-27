@@ -1,0 +1,18 @@
+{
+  "1234": {
+    "fr": {
+      "resId": "1",
+      "state": "Translated",
+      "translator": {
+        "email": "admin@example.com",
+        "name": "Administrator",
+        "links": null
+      },
+      "content": "Bonjour tout le monde",
+      "contents": null,
+      "extensions": [],
+      "revision": 2,
+      "textFlowRevision": 1
+    }
+  }
+}

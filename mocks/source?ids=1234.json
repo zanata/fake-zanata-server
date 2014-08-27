@@ -1,0 +1,13 @@
+{
+  "1234": {
+    "source": {
+      "resId": "1",
+      "lang": "en-US",
+      "content": "Hello World",
+      "contents": null,
+      "plural": false,
+      "extensions": [],
+      "revision": 1
+    }
+  }
+}
