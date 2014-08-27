@@ -34,7 +34,7 @@ Install dependencies:
 ...
 ```
 
-Start the server with the default port:
+Start the server with the default settings:
 
 ```
 [prompt]$ npm start
@@ -42,7 +42,7 @@ Start the server with the default port:
 REST endpoint listening at http://localhost:7878/zanata/rest, with latency 50..500
 ```
 
-you can specify a port, base REST path, and latency:
+You can change some settings with command-line flags:
 
 ```
 [prompt]$ npm start --port=1234 --latency=1000..5000 --path=rest
@@ -50,10 +50,12 @@ you can specify a port, base REST path, and latency:
 REST endpoint listening at http://localhost:1234/rest, with latency 1000..5000
 ```
 
- - port: any available port to use
- - path: path to prepend to the local portion of each resource URL
- - latency: plain number or range of milliseconds to delay each response
-
+ - --port: any available system port to listen on. Default: 7878
+ - --path: path to prepend to the local portion of each resource URL.
+           Default: zanata/rest
+ - --latency: milliseconds to delay each response. Can be a single number,
+            or a range in the form `minimum..maximum`. Default: 50..500
+ - --debug: true to show debugging information in the console. Default: false
 
 
 Get resources from any of the endpoints listed under 'Endpoints' below:

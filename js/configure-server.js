@@ -1,7 +1,9 @@
-var Interfake = require('interfake');
+var Interfake = require('interfake'),
+    flag = require('node-env-flag');
 
 var port = process.env.npm_config_port || 7878;
 var path = process.env.npm_config_path || 'zanata/rest';
+var debug = flag(process.env.npm_config_debug, false);
 
 /**
  * Returns value as an int only if it is a finite integer with no extra
@@ -21,7 +23,8 @@ var latency = valueOrDefault(parseIntIfInt(process.env.npm_config_latency), DEFA
 
 
 var options = {
-  path: path
+  path: path,
+  debug: debug
 }
 
 var interfake = new Interfake(options);

@@ -10,7 +10,8 @@
   "author": "github.com/davidmason",
   "license": "MIT",
   "dependencies": {
-    "interfake": "^1.9.0"
+    "interfake": "^1.9.0",
+    "node-env-flag": "^0.1.0"
   },
   "devDependencies": {},
   "repository": {
