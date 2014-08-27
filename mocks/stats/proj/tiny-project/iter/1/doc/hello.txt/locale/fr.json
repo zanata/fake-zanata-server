@@ -1,0 +1,25 @@
+[{
+  "total": "317",
+  "untranslated": "12",
+  "needReview": "0",
+  "translated": "290",
+  "approved": "5",
+  "rejected": "0",
+  "translatedOnly": "0",
+  "fuzzy": "10",
+  "unit": "MESSAGE",
+  "locale": "fr",
+  "lastTranslated": "11/10/12 21:42 by optimus"
+}, {
+  "total": "50",
+  "untranslated": "12",
+  "needReview": "0",
+  "translated": "30",
+  "approved": "0",
+  "rejected": "0",
+  "translatedOnly": "0",
+  "fuzzy": "8",
+  "unit": "WORD",
+  "locale": "fr",
+  "lastTranslated": "11/10/12 21:42 by optimus"
+}]

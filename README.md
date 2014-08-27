@@ -167,3 +167,6 @@ in the future.
        { id: 1237, resId: "second", state: "fuzzy" },
        { id: 1238, resId: "third", state: "untranslated" }
      ]
+
+  - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
+    - get words and message statistic of given document in given locale

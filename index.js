@@ -11,7 +11,9 @@ var endpoints = [
   '/projects/p/tiny-project/iterations/i/1/r/hello.txt/states/fr',
   '/projects/p/tiny-project/iterations/i/1/r/hello.txt',
   '/projects/p/tiny-project/iterations/i/1/locales',
-  '/stats/proj/tiny-project/iter/1/doc/hello.txt'
+  '/stats/proj/tiny-project/iter/1/doc/hello.txt',
+  '/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/en-us',
+  '/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr'
 ]
 
 endpoints.forEach(createPathWithMockFile);
