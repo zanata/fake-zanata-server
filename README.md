@@ -170,8 +170,8 @@ in the future.
        { id: 1238, resId: "third", state: "untranslated" }
      ]
 
-  - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
-    - get words and message statistic of given document in given locale
+ - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
+   - get words and message statistic of given document in given locale
 
  - endpoints for getting string details: source, translation, or both
    - paths from root REST url:
