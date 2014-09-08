@@ -33,7 +33,11 @@ var endpoints = [
   endpoint('/projects/p/tiny-project/iterations/i/1/locales'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/en-us'),
-  endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr')
+  endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr'),
+
+  endpoint('/user'),
+  endpoint('/user/professor-x'),
+  endpoint('/user/wolverine')
 ];
 
 
