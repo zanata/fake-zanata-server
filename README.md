@@ -194,3 +194,15 @@ in the future.
        resId is only unique within a document, and allowing both id and resId on
        the same resource could cause a lot of confusion.
 
+ - /user
+   - get authenticated user information
+
+ - /user/{username}
+   - get user's information with given username
+   - e.g.
+        {
+          "username" : "username",
+          "email" : "email",
+          "name" : "display name",
+          "gravatarHash" : "gravatar hash"
+        }
