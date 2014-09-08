@@ -36,7 +36,8 @@ var endpoints = [
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr'),
 
   endpoint('/user'),
-  endpoint('/user/professor-x')
+  endpoint('/user/professor-x'),
+  endpoint('/user/wolverine')
 ];
 
 

@@ -195,14 +195,16 @@ in the future.
        the same resource could cause a lot of confusion.
 
  - /user
-   - get authenticated user information
+   - get user's information for the current authenticated user, equivalent to /user/{username} with the current user's username.
 
  - /user/{username}
    - get user's information with given username
    - e.g.
+     ```
         {
           "username" : "username",
           "email" : "email",
           "name" : "display name",
           "gravatarHash" : "gravatar hash"
         }
+     ```
