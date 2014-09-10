@@ -12,5 +12,20 @@
     }],
     "iterations": null,
     "status": "ACTIVE"
+  },
+  {
+    "id": "moby-dick",
+    "defaultType": "File",
+    "name": "Moby Dick",
+    "description": "Moby Dick project",
+    "sourceViewURL": null,
+    "sourceCheckoutURL": null,
+    "links": [{
+        "href": "p/moby-dick",
+        "rel": "self",
+        "type": "application/vnd.zanata.project+json"
+    }],
+    "iterations": null,
+    "status": "ACTIVE"
   }
 ]
