@@ -9,31 +9,57 @@ var tinyProjectHelloTxtPath = '/projects/p/tiny-project/iterations/i/1/r/hello.t
 // Thunks that will be executed to register endpoints (to allow order of actual
 // registration to be manipulated.
 var endpoints = [
-  extendingEndpoints(
-    '/projects', '/p/tiny-project', '/iterations/i/1', '/r', '/hello.txt', '/states/fr'),
+  endpoint('/projects'),
+  subEndpoints('/projects/p', ['/tiny-project', '/moby-dick']),
 
-  subEndpoints('/source?ids=', ['1234', '1237', '1238']),
+  endpoint('/projects/p/tiny-project/iterations/i/1/r'),
+  endpoint('/projects/p/moby-dick/iterations/i/1/r'),
+
+  subEndpoints('/projects/p/tiny-project/iterations/i/1/r', ['/hello.txt']),
+  subEndpoints('/projects/p/moby-dick/iterations/i/1/r', ['/chapter1.txt']),
+
+  subEndpoints('/projects/p/tiny-project/iterations/i/1/r/hello.txt/states', ['/fr', '/en-us']),
+  subEndpoints('/projects/p/moby-dick/iterations/i/1/r/chapter1.txt/states', ['/fr', '/de']),
+
+  subEndpoints('/source?ids=', ['1234', '1237', '1238', '1500', '1501', '1502']),
   endpoint('/source', {}, {}),
   endpoint('/source', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
-  subEndpoints('/trans/fr?ids=', ['1234', '1237']),
+  subEndpoints('/trans/fr?ids=', ['1234', '1237', '1500', '1501']),
   endpoint('/trans/fr', {}, {}),
   endpoint('/trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/trans/fr', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
-  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238']),
+  subEndpoints('/trans/de?ids=', ['1500', '1501']),
+  endpoint('/trans/de', {}, {}),
+  endpoint('/trans/de', { ids: commaSeparatedNumeric }),
+  badRequestEndpoint('/trans/de', {ids: /.*/},
+    {error: 'query param "ids" must be a comma-separated list of numbers'}),
+
+  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238', '1501', '1502', '1503']),
   endpoint('/source+trans/fr', {}, {}),
   endpoint('/source+trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source+trans/fr', {ids: /.*/},
+    {error: 'query param "ids" must be a comma-separated list of numbers'}),
+
+  subEndpoints('/source+trans/de?ids=', ['1500', '1501', '1502']),
+  endpoint('/source+trans/de', {}, {}),
+  endpoint('/source+trans/de', { ids: commaSeparatedNumeric }),
+  badRequestEndpoint('/source+trans/de', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   endpoint('/projects/p/tiny-project/iterations/i/1/locales'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/en-us'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr'),
+
+  endpoint('/projects/p/moby-dick/iterations/i/1/locales'),
+  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt'),
+  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt/locale/de'),
+  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt/locale/fr'),
 
   endpoint('/user'),
   endpoint('/user/professor-x'),

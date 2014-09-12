@@ -1,0 +1,22 @@
+{
+  "1502": {
+    "source": {
+      "resId": "501",
+      "lang": "en-US",
+      "content": "There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs- commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.",
+      "contents": null,
+      "plural": false,
+      "extensions": [],
+      "revision": 1
+    },
+    "fr": {
+      "resId": "5003",
+      "state": "NeedReview",
+      "content": "Il est maintenant votre ville insulaire de Manhattoes , ceinture ronde par les quais comme îles indiennes de corail reefs- commerce entoure avec son ressac. Droite et gauche , les rues prennent waterward vous . Son extrême centre-ville est la batterie , où ce noble taupe est lavée par les vagues, et refroidi par les brises , qui quelques heures précédentes étaient hors de vue de terre . Regardez la foule des badauds eau - là .",
+      "contents": null,
+      "extensions": [],
+      "revision": 1,
+      "textFlowRevision": 1
+    }
+  }
+}
