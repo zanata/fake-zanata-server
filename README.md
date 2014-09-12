@@ -125,6 +125,14 @@ A minimal project with a single version containing a single document.
  - version: 1
  - document: hello.txt
 
+### Moby dick (currently with single version containing single document)
+
+Mody dick project.
+
+ - id: moby-dick
+ - version: 1
+ - document: chapter1.txt
+
 
 ## Endpoints
 
