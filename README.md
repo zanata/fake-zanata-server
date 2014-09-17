@@ -202,6 +202,26 @@ in the future.
        resId is only unique within a document, and allowing both id and resId on
        the same resource could cause a lot of confusion.
 
+ - PUT /trans/{localeId}
+   - currently only implemented for the 3rd French string in tiny-project
+   - save one or more translations, using their database id.
+   - body is an array of objects (one per translation)
+     - [
+         {
+           id: <long id>,
+           revision: <base revision>,
+           content: <singluar content>,
+           plurals: []
+         },
+         ...
+       ]
+   - a translation could be saved individually by adding `/{id}` to the URL, but
+     this is redundant and will not initially be implemented.
+   - response codes:
+     - 201 (CREATED) or 200 (SUCCESS) if it was successful
+     - 409 (CONFLICT) if revision is not the current version on the server
+       (this check is not done in the current version, so expect only 200).
+
  - /user
    - get user's information for the current authenticated user, equivalent to
      /user/{username} with the current user's username.

@@ -28,6 +28,8 @@ var endpoints = [
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   subEndpoints('/trans/fr?ids=', ['1234', '1237', '1500', '1501']),
+  // Initially no translation for this id, but overriden with put below.
+  endpoint('/trans/fr?ids=1238', {}, {}),
   endpoint('/trans/fr', {}, {}),
   endpoint('/trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/trans/fr', {ids: /.*/},
@@ -38,6 +40,21 @@ var endpoints = [
   endpoint('/trans/de', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/trans/de', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
+
+  (function () {
+    var putEndpoint = server.put('/trans/fr')
+                            .status(200)
+                            .body({})
+                            .delay(config.latency);
+    putEndpoint.creates.get('/trans/fr?ids=1238')
+                       .status(200)
+                       .body(getJSON('/trans/fr?ids=1238'))
+                       .delay(config.latency);
+    putEndpoint.creates.get('/source+trans/fr?ids=1238')
+                       .status(200)
+                       .body(getJSON('/source+trans/fr?ids=1238-with-trans'))
+                       .delay(config.latency);
+  }),
 
   subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238', '1501', '1502', '1503']),
   endpoint('/source+trans/fr', {}, {}),
@@ -90,8 +107,8 @@ function evaluate (f) {
  * will be an error trying to access a file that does not exist.
  *
  * @path Local portion of endpoint path.
- * @query Optional object detailing query string parameters to match. Object key is
- *        the key, and the value may be a plain value or a regular expression.
+ * @query Optional object detailing query string parameters to match. Object key
+          is the key, and the value may be a plain value or a regular expression.
  * @body Optional object to return as the body. If excluded, the file at the
  *       given @path will be used.
  */
