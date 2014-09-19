@@ -42,6 +42,24 @@ var endpoints = [
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   (function () {
+    // The OPTIONS method is used for pre-check for any CORS request that could
+    // cause changes on the server. Server must respond with allowed origin and
+    // methods for the endpoint, or the PUT will not be attempted.
+    server.createRoute({
+      request: {
+          url: '/trans/fr',
+          method: 'options',
+      },
+      response: {
+          code: 200,
+          delay: config.latency,
+          body: {},
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, PUT'
+          }
+      }
+    });
     var putEndpoint = server.put('/trans/fr')
                             .status(200)
                             .body({})

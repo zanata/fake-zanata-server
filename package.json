@@ -1,6 +1,6 @@
 {
   "name": "fake-zanata-server",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A simple REST server that presents a REST API similar to Zanata Server",
   "main": "index.js",
   "scripts": {
