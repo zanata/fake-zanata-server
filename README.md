@@ -161,7 +161,15 @@ These exist on the real Zanata server
 
 These do not exist on the real Zanata server, but may be implemented there
 in the future.
-
+ - locales
+   - get list of enabled locales of Zanata instance
+   - e.g.
+     ```
+        [
+            { "localeId": "en-US", "displayName": "English"},
+            { "localeId": "fr", "displayName": "French"}
+        ]
+     ```
  - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales
    - get a list of the enabled translation locales for a project-version
 

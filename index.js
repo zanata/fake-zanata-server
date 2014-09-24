@@ -9,6 +9,7 @@ var tinyProjectHelloTxtPath = '/projects/p/tiny-project/iterations/i/1/r/hello.t
 // Thunks that will be executed to register endpoints (to allow order of actual
 // registration to be manipulated.
 var endpoints = [
+  endpoint('/locales'),
   endpoint('/projects'),
   subEndpoints('/projects/p', ['/tiny-project', '/moby-dick']),
 

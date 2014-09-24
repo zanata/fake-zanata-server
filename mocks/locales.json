@@ -1,0 +1,22 @@
+[
+  {
+    "localeId": "en-US",
+    "displayName": "English"
+  },
+  {
+    "localeId": "fr",
+    "displayName": "French"
+  },
+  {
+    "localeId": "de",
+    "displayName": "German"
+  },
+  {
+    "localeId": "zh-Hans",
+    "displayName": "Chinese(Simplified)"
+  },
+  {
+    "localeId": "zh-Hant",
+    "displayName": "Chinese(Traditional)"
+  }
+]
