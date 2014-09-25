@@ -1,8 +1,8 @@
 {
   "id": "tiny-project",
   "defaultType": "File",
-  "name": "Moby Dick Project",
-  "description": "Moby Dick project",
+  "name": "Big Project",
+  "description": "Big project",
   "sourceViewURL": "source-view-url",
   "sourceCheckoutURL": "source-checkout-url",
   "links": null,

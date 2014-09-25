@@ -1,26 +1,109 @@
 var config = require('./js/configure-server')
     server = config.server,
-    getJSON = require('./js/get-json')(__dirname + '/mocks');
+    getJSON = require('./js/get-json')(__dirname + '/mocks'),
+    bigProjectDataPath = __dirname + '/mocks/data/big-project',
+    fs = require('fs');
 
 
 var commaSeparatedNumeric = /^[0-9][0-9,]*$/;
 var tinyProjectHelloTxtPath = '/projects/p/tiny-project/iterations/i/1/r/hello.txt';
+
+var projectPath = __dirname + '/mocks/projects';
+var bigProjectPath = projectPath + '/p/big-project';
+var bigProjectVersionPath = bigProjectPath + '/iterations/i/1';
+var bigProjectDocsPath = bigProjectVersionPath + '/r';
+var bigProjectStatesPath = bigProjectDocsPath + '/chapter1.txt/states';
+
+initBigProjectData();
+
+function initBigProjectData() {
+  fs.readFile(bigProjectDataPath + '/transUnits.json', "utf8", function(err, data) {
+    if (err) {
+      console.log('Error: ' + err);
+      return;
+    }
+
+    var transUnits = {};
+    data = JSON.parse(data);
+    for (var id in data) {
+      transUnits[id] = data[id];
+    }
+    createBigProjectStates('de', transUnits);
+    createBigProjectStates('fr', transUnits);
+
+    createDocuments(transUnits);
+  });
+}
+
+function createBigProjectStates(localeId, transUnits) {
+  var fileName = localeId + '.json';
+  var data = [];
+
+  for (var id in transUnits) {
+    data.push({
+      "id": id,
+      "resId": transUnits[id]['source'].resId,
+      "state": transUnits[id][localeId] ? transUnits[id][localeId].state : 'Untranslated'
+    });
+  }
+  fs.writeFile(bigProjectStatesPath + '/' + fileName, JSON.stringify(data), {overwrite: true}, function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log("created file: " + bigProjectStatesPath + '/' + fileName);
+    }
+  });
+}
+
+function createBigProjectDocuments(transUnits) {
+
+  fs.createReadStream(bigProjectDocsPath + 'r.json').pipe(fs.createWriteStream(bigProjectDataPath + '/documents.json'));
+
+  fs.readFile(dataPath + '/documents.json', "utf8", function(err, data) {
+    if (err) {
+      console.log('Error: ' + err);
+      return;
+    }
+    data = JSON.parse(data);
+    for (var index in data) {
+      var fileData = data[index];
+
+      var fileName = fileData['name'] + '.json';
+      fileData['textFlows'] = [];
+
+      for(var id in transUnits) {
+        var source = transUnits[id]['source'];
+        source['id'] = id;
+        delete source['resId'];
+        fileData['textFlows'].push(source);
+      }
+
+      fs.writeFile(bigProjectDocsPath + '/' + fileName, JSON.stringify(fileData), {overwrite: true}, function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("created file: " + bigProjectDocsPath + '/' + fileName);
+        }
+      });
+    }
+  });
+}
 
 // Thunks that will be executed to register endpoints (to allow order of actual
 // registration to be manipulated.
 var endpoints = [
   endpoint('/locales'),
   endpoint('/projects'),
-  subEndpoints('/projects/p', ['/tiny-project', '/moby-dick']),
+  subEndpoints('/projects/p', ['/tiny-project', '/big-project']),
 
   endpoint('/projects/p/tiny-project/iterations/i/1/r'),
-  endpoint('/projects/p/moby-dick/iterations/i/1/r'),
+  endpoint('/projects/p/big-project/iterations/i/1/r'),
 
   subEndpoints('/projects/p/tiny-project/iterations/i/1/r', ['/hello.txt']),
-  subEndpoints('/projects/p/moby-dick/iterations/i/1/r', ['/chapter1.txt']),
+  subEndpoints('/projects/p/big-project/iterations/i/1/r', ['/chapter1.txt']),
 
   subEndpoints('/projects/p/tiny-project/iterations/i/1/r/hello.txt/states', ['/fr', '/en-us']),
-  subEndpoints('/projects/p/moby-dick/iterations/i/1/r/chapter1.txt/states', ['/fr', '/de']),
+  subEndpoints('/projects/p/big-project/iterations/i/1/r/chapter1.txt/states', ['/fr', '/de']),
 
   subEndpoints('/source?ids=', ['1234', '1237', '1238', '1500', '1501', '1502']),
   endpoint('/source', {}, {}),
@@ -49,7 +132,7 @@ var endpoints = [
     server.createRoute({
       request: {
           url: '/trans/fr',
-          method: 'options',
+          method: 'options'
       },
       response: {
           code: 200,
@@ -92,10 +175,10 @@ var endpoints = [
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/en-us'),
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt/locale/fr'),
 
-  endpoint('/projects/p/moby-dick/iterations/i/1/locales'),
-  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt'),
-  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt/locale/de'),
-  endpoint('/stats/proj/moby-dick/iter/1/doc/chapter1.txt/locale/fr'),
+  endpoint('/projects/p/big-project/iterations/i/1/locales'),
+  endpoint('/stats/proj/big-project/iter/1/doc/chapter1.txt'),
+  endpoint('/stats/proj/big-project/iter/1/doc/chapter1.txt/locale/de'),
+  endpoint('/stats/proj/big-project/iter/1/doc/chapter1.txt/locale/fr'),
 
   endpoint('/user'),
   endpoint('/user/professor-x'),

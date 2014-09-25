@@ -14,14 +14,14 @@
     "status": "ACTIVE"
   },
   {
-    "id": "moby-dick",
+    "id": "big-project",
     "defaultType": "File",
-    "name": "Moby Dick",
-    "description": "moby dick story",
+    "name": "Big",
+    "description": "Big story",
     "sourceViewURL": null,
     "sourceCheckoutURL": null,
     "links": [{
-        "href": "p/moby-dick",
+        "href": "p/big-project",
         "rel": "self",
         "type": "application/vnd.zanata.project+json"
     }],
