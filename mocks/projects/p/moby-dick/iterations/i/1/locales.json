@@ -1,10 +1,10 @@
 [
   {
     "localeId": "de",
-    "displayName": "German"
+    "name": "German"
   },
   {
     "localeId": "fr",
-    "displayName": "French"
+    "name": "French"
   }
 ]

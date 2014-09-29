@@ -166,8 +166,8 @@ in the future.
    - e.g.
      ```
         [
-            { "localeId": "en-US", "displayName": "English"},
-            { "localeId": "fr", "displayName": "French"}
+            { "localeId": "en-US", "name": "English"},
+            { "localeId": "fr", "name": "French"}
         ]
      ```
  - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales

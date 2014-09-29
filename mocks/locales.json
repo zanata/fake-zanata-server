@@ -1,22 +1,22 @@
 [
   {
     "localeId": "en-US",
-    "displayName": "English"
+    "name": "English"
   },
   {
     "localeId": "fr",
-    "displayName": "French"
+    "name": "French"
   },
   {
     "localeId": "de",
-    "displayName": "German"
+    "name": "German"
   },
   {
     "localeId": "zh-Hans",
-    "displayName": "Chinese(Simplified)"
+    "name": "Chinese(Simplified)"
   },
   {
     "localeId": "zh-Hant",
-    "displayName": "Chinese(Traditional)"
+    "name": "Chinese(Traditional)"
   }
 ]
