@@ -19,24 +19,18 @@ var endpoints = [
 
   subEndpoints('/projects/tiny-project/versions/1/doc/hello.txt/status', ['/fr', '/en-US']),
 
-  subEndpoints('/source?ids=', ['1234', '1237', '1238', '1500', '1501', '1502']),
+  subEndpoints('/source?ids=', ['1234', '1237', '1238']),
   endpoint('/source', {}, {}),
   endpoint('/source', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
-  subEndpoints('/trans/fr?ids=', ['1234', '1237', '1500', '1501']),
+  subEndpoints('/trans/fr?ids=', ['1234', '1237']),
   // Initially no translation for this id, but overriden with put below.
   endpoint('/trans/fr?ids=1238', {}, {}),
   endpoint('/trans/fr', {}, {}),
   endpoint('/trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/trans/fr', {ids: /.*/},
-    {error: 'query param "ids" must be a comma-separated list of numbers'}),
-
-  subEndpoints('/trans/de?ids=', ['1500', '1501']),
-  endpoint('/trans/de', {}, {}),
-  endpoint('/trans/de', { ids: commaSeparatedNumeric }),
-  badRequestEndpoint('/trans/de', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   (function () {
@@ -72,16 +66,10 @@ var endpoints = [
                        .delay(config.latency);
   }),
 
-  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238', '1501', '1502', '1503']),
+  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238']),
   endpoint('/source+trans/fr', {}, {}),
   endpoint('/source+trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source+trans/fr', {ids: /.*/},
-    {error: 'query param "ids" must be a comma-separated list of numbers'}),
-
-  subEndpoints('/source+trans/de?ids=', ['1500', '1501', '1502']),
-  endpoint('/source+trans/de', {}, {}),
-  endpoint('/source+trans/de', { ids: commaSeparatedNumeric }),
-  badRequestEndpoint('/source+trans/de', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   endpoint('/projects/tiny-project/versions/1/locales'),

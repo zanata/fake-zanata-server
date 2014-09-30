@@ -6,7 +6,7 @@
   "approved": "0",
   "rejected": "0",
   "unit": "MESSAGE",
-  "locale": "en-us",
+  "locale": "en-US",
   "lastTranslated": "11/10/12 21:42 by optimus"
 }, {
   "total": "50",
@@ -16,6 +16,6 @@
   "approved": "0",
   "rejected": "0",
   "unit": "WORD",
-  "locale": "en-us",
+  "locale": "en-US",
   "lastTranslated": "11/10/12 21:42 by optimus"
 }]
