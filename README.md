@@ -158,10 +158,26 @@ in the future.
             { "localeId": "fr", "name": "French"}
         ]
      ```
- - projects/{projectSlug}/versions/i/{versionSlug}/locales
+
+ - project/{projectSlug}
+   - get project information.
+     See: projects/p/{projectSlug}
+
+ - project/{projectSlug}/version/{versionSlug}
+   - get project-version information.
+     See: projects/p/{projectSlug}/iterations/i/{versionSlug}
+
+ - project/{projectSlug}/version/{versionSlug}/docs
+   - get a list of documents for a project-version.
+     See: projects/p/{projectSlug}/iterations/i/{versionSlug}/r
+
+ - project/{projectSlug}/version/{versionSlug}/doc/{encodedDocId*}
+   - get a document of project-version
+
+ - project/{projectSlug}/version/{versionSlug}/locales
    - get a list of the enabled translation locales for a project-version
 
- - projects/{projectSlug}/versions/{versionSlug}/doc/{docId}/status/{localeId}
+ - project/{projectSlug}/version/{versionSlug}/doc/{docId}/status/{localeId}
    - get a list of all text flow ids with their state in a given locale
    - may want to allow query parameters for start index and limit, so that
      simple clients can use paging. Range header fields may be appropriate for

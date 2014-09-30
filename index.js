@@ -4,20 +4,19 @@ var config = require('./js/configure-server')
 
 
 var commaSeparatedNumeric = /^[0-9][0-9,]*$/;
-var tinyProjectHelloTxtPath = '/projects/p/tiny-project/iterations/i/1/r/hello.txt';
 
 // Thunks that will be executed to register endpoints (to allow order of actual
 // registration to be manipulated.
 var endpoints = [
   endpoint('/locales'),
   endpoint('/projects'),
-  subEndpoints('/projects/p', ['/tiny-project']),
+  subEndpoints('/project', ['/tiny-project']),
 
-  endpoint('/projects/p/tiny-project/iterations/i/1/r'),
+  endpoint('/project/tiny-project/version/1/docs'),
 
-  subEndpoints('/projects/p/tiny-project/iterations/i/1/r', ['/hello.txt']),
+  subEndpoints('/project/tiny-project/version/1/doc', ['/hello.txt']),
 
-  subEndpoints('/projects/tiny-project/versions/1/doc/hello.txt/status', ['/fr', '/en-US']),
+  subEndpoints('/project/tiny-project/version/1/doc/hello.txt/status', ['/fr', '/en-US']),
 
   subEndpoints('/source?ids=', ['1234', '1237', '1238']),
   endpoint('/source', {}, {}),
@@ -72,7 +71,7 @@ var endpoints = [
   badRequestEndpoint('/source+trans/fr', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
-  endpoint('/projects/tiny-project/versions/1/locales'),
+  endpoint('/project/tiny-project/version/1/locales'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/en-US'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/fr'),
 
