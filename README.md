@@ -125,15 +125,6 @@ A minimal project with a single version containing a single document.
  - version: 1
  - document: hello.txt
 
-### Moby dick
-
-Mody dick project. Currently with single version containing single document.
-
- - id: moby-dick
- - version: 1
- - document: chapter1.txt
-
-
 ## Endpoints
 
 Here is a list of the available endpoint URLs. Some are experimental
@@ -150,9 +141,6 @@ These exist on the real Zanata server
    - projects/p/{projectSlug}/iterations/i/{versionSlug}
    - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
    - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{encodedDocId*}
- - Statistics
-   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}
-
 
 *Note: docId is encoded by replacing `/` with `,`.
 
@@ -166,14 +154,14 @@ in the future.
    - e.g.
      ```
         [
-            { "localeId": "en-US", "displayName": "English"},
-            { "localeId": "fr", "displayName": "French"}
+            { "localeId": "en-US", "name": "English"},
+            { "localeId": "fr", "name": "French"}
         ]
      ```
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales
+ - projects/{projectSlug}/versions/i/{versionSlug}/locales
    - get a list of the enabled translation locales for a project-version
 
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}/states/{localeId}
+ - projects/{projectSlug}/versions/{versionSlug}/doc/{docId}/status/{localeId}
    - get a list of all text flow ids with their state in a given locale
    - may want to allow query parameters for start index and limit, so that
      simple clients can use paging. Range header fields may be appropriate for
@@ -186,7 +174,7 @@ in the future.
        { id: 1238, resId: "third", state: "untranslated" }
      ]
 
- - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
+ - /stats/project/{projectSlug}/version/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
    - get words and message statistic of given document in given locale
 
  - endpoints for getting string details: source, translation, or both
