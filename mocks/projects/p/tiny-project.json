@@ -1,0 +1,20 @@
+{
+  "id": "tiny-project",
+  "defaultType": "File",
+  "name": "Tiny Project",
+  "description": "A minimal project with a single version containing a single document.",
+  "sourceViewURL": "source-view-url",
+  "sourceCheckoutURL": "source-checkout-url",
+  "links": null,
+  "iterations": [{
+      "id": "1",
+      "links": [{
+          "href": "iterations/i/1",
+          "rel": "self",
+          "type": "application/vnd.zanata.project.iteration+json"
+      }],
+      "status": "ACTIVE",
+      "projectType": "File"
+  }],
+  "status": "ACTIVE"
+}
