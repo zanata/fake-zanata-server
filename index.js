@@ -10,11 +10,19 @@ var commaSeparatedNumeric = /^[0-9][0-9,]*$/;
 var endpoints = [
   endpoint('/locales'),
   endpoint('/projects'),
-  subEndpoints('/project', ['/tiny-project']),
+  endpointWithAlias('/projects/p/tiny-project',
+                    '/project/tiny-project'),
 
-  endpoint('/project/tiny-project/version/1/docs'),
+  endpointWithAlias('/projects/p/tiny-project/iterations/i/1',
+                    '/project/tiny-project/version/1'),
 
-  subEndpoints('/project/tiny-project/version/1/doc', ['/hello.txt']),
+  endpointWithAlias('/projects/p/tiny-project/iterations/i/1/r',
+                    '/project/tiny-project/version/1/docs'),
+
+  endpointWithAlias('/projects/p/tiny-project/iterations/i/1/r/hello.txt',
+                    '/project/tiny-project/version/1/doc/hello.txt'),
+
+
 
   subEndpoints('/project/tiny-project/version/1/doc/hello.txt/status', ['/fr', '/en-US']),
 
@@ -72,6 +80,8 @@ var endpoints = [
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   endpoint('/project/tiny-project/version/1/locales'),
+  
+  endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/en-US'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/fr'),
 
@@ -114,6 +124,22 @@ function endpoint(path, query, body) {
     body = body || getJSON(path);
     createEndpointFromObject(path, query, body);
     console.log('  registered path %s', path);
+  }
+}
+
+/**
+ * Create a thunk that registers multiple endpoints that use the same data.
+ *
+ * The path of the JSON file in the mock directory must be the same as the first
+ * path argument.
+ *
+ * @path Local portion of endpoint path.
+ * @aliasPath Alternative path that will return the same data as the first path.
+ */
+function endpointWithAlias(path, aliasPath) {
+  return function () {
+    endpoint(path)();
+    endpoint(aliasPath, null, getJSON(path))();
   }
 }
 

@@ -141,6 +141,9 @@ These exist on the real Zanata server
    - projects/p/{projectSlug}/iterations/i/{versionSlug}
    - projects/p/{projectSlug}/iterations/i/{versionSlug}/r
    - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{encodedDocId*}
+ - Statistics
+   - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}
+
 
 *Note: docId is encoded by replacing `/` with `,`.
 
@@ -149,6 +152,7 @@ These exist on the real Zanata server
 
 These do not exist on the real Zanata server, but may be implemented there
 in the future.
+
  - locales
    - get list of enabled locales of Zanata instance
    - e.g.
