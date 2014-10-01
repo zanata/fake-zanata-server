@@ -1,21 +1,21 @@
 [{
   "total": "317",
-  "untranslated": "12",
-  "needsWork": "15",
-  "translated": "290",
+  "untranslated": "0",
+  "needsWork": "0",
+  "translated": "317",
   "approved": "0",
   "rejected": "0",
   "unit": "MESSAGE",
-  "locale": "fr",
+  "locale": "en-US",
   "lastTranslated": "11/10/12 21:42 by optimus"
 }, {
   "total": "50",
-  "untranslated": "12",
-  "needsWork": "8",
-  "translated": "30",
+  "untranslated": "2",
+  "needsWork": "3",
+  "translated": "45",
   "approved": "0",
   "rejected": "0",
   "unit": "WORD",
-  "locale": "fr",
+  "locale": "en-US",
   "lastTranslated": "11/10/12 21:42 by optimus"
 }]

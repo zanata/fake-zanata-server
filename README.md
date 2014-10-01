@@ -125,15 +125,6 @@ A minimal project with a single version containing a single document.
  - version: 1
  - document: hello.txt
 
-### Moby dick
-
-Mody dick project. Currently with single version containing single document.
-
- - id: moby-dick
- - version: 1
- - document: chapter1.txt
-
-
 ## Endpoints
 
 Here is a list of the available endpoint URLs. Some are experimental
@@ -161,6 +152,7 @@ These exist on the real Zanata server
 
 These do not exist on the real Zanata server, but may be implemented there
 in the future.
+
  - locales
    - get list of enabled locales of Zanata instance
    - e.g.
@@ -170,10 +162,26 @@ in the future.
             { "localeId": "fr", "name": "French"}
         ]
      ```
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/locales
+
+ - project/{projectSlug}
+   - get project information.
+     See: projects/p/{projectSlug}
+
+ - project/{projectSlug}/version/{versionSlug}
+   - get project-version information.
+     See: projects/p/{projectSlug}/iterations/i/{versionSlug}
+
+ - project/{projectSlug}/version/{versionSlug}/docs
+   - get a list of documents for a project-version.
+     See: projects/p/{projectSlug}/iterations/i/{versionSlug}/r
+
+ - project/{projectSlug}/version/{versionSlug}/doc/{encodedDocId*}
+   - get a document of project-version
+
+ - project/{projectSlug}/version/{versionSlug}/locales
    - get a list of the enabled translation locales for a project-version
 
- - projects/p/{projectSlug}/iterations/i/{versionSlug}/r/{docId}/states/{localeId}
+ - project/{projectSlug}/version/{versionSlug}/doc/{docId}/status/{localeId}
    - get a list of all text flow ids with their state in a given locale
    - may want to allow query parameters for start index and limit, so that
      simple clients can use paging. Range header fields may be appropriate for
@@ -186,7 +194,7 @@ in the future.
        { id: 1238, resId: "third", state: "untranslated" }
      ]
 
- - /stats/proj/{projectSlug}/iter/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
+ - /stats/project/{projectSlug}/version/{versionSlug}/doc/{encodedDocId*}/locale/{localeId}
    - get words and message statistic of given document in given locale
 
  - endpoints for getting string details: source, translation, or both
