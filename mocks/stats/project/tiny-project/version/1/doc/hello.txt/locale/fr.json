@@ -1,7 +1,7 @@
 [{
   "total": "317",
   "untranslated": "12",
-  "needsWork": "15",
+  "needReview": "15",
   "translated": "290",
   "approved": "0",
   "rejected": "0",
@@ -11,7 +11,7 @@
 }, {
   "total": "50",
   "untranslated": "12",
-  "needsWork": "8",
+  "needReview": "8",
   "translated": "30",
   "approved": "0",
   "rejected": "0",

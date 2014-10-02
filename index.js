@@ -61,7 +61,7 @@ var endpoints = [
     });
     var putEndpoint = server.put('/trans/fr')
                             .status(200)
-                            .body({revision: 2, state: 'translated'})
+                            .body({revision: 2, status: 'translated'})
                             .delay(config.latency);
     putEndpoint.creates.get('/trans/fr?ids=1238')
                        .status(200)
