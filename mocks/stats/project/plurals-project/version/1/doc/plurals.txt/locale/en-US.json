@@ -1,0 +1,37 @@
+[
+  {
+    "total": 74,
+    "untranslated":0,
+    "needReview":0,
+    "translated": 74,
+    "approved":0,
+    "rejected":0,
+    "fuzzy": 8,
+    "unit":"WORD",
+    "locale":"en-US",
+    "lastTranslated":null,
+    "remainingHours":0.0,
+    "lastTranslatedDate":null,
+    "lastTranslatedBy":null,
+    "translatedAndApproved":2,
+    "translatedOnly":2,
+    "percentDraft":0.0
+  },{
+    "total": 3,
+    "untranslated":0,
+    "needReview":0,
+    "translated": 3,
+    "approved":0,
+    "rejected":0,
+    "fuzzy":0,
+    "unit":"MESSAGE",
+    "locale":"en-US",
+    "lastTranslated":null,
+    "remainingHours":0.0,
+    "lastTranslatedDate":null,
+    "lastTranslatedBy":null,
+    "translatedAndApproved": 3,
+    "translatedOnly": 3,
+    "percentDraft":0.0
+  }
+]

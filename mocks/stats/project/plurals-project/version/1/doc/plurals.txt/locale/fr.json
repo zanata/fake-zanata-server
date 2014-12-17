@@ -1,0 +1,37 @@
+[
+  {
+    "total": 74,
+    "untranslated": 64,
+    "needReview": 8,
+    "translated": 2,
+    "approved": 0,
+    "rejected": 0,
+    "fuzzy": 8,
+    "unit": "WORD",
+    "locale": "fr",
+    "lastTranslated": "17/12/14 15:40 by wolverine",
+    "remainingHours": 0.0,
+    "lastTranslatedDate": 1417400775000,
+    "lastTranslatedBy": "wolverine",
+    "translatedAndApproved": 2,
+    "translatedOnly": 2,
+    "percentDraft": 0.0
+  },{
+    "total": 3,
+    "untranslated": 1,
+    "needReview": 1,
+    "translated": 1,
+    "approved": 0,
+    "rejected": 0,
+    "fuzzy": 1,
+    "unit": "MESSAGE",
+    "locale": "fr",
+    "lastTranslated": "17/12/14 15:40 by wolverine",
+    "remainingHours": 0.2,
+    "lastTranslatedDate": 1417400775000,
+    "lastTranslatedBy": "wolverine",
+    "translatedAndApproved": 1,
+    "translatedOnly": 1,
+    "percentDraft": 30.0
+  }
+]

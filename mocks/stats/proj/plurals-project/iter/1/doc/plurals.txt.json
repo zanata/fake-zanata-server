@@ -1,0 +1,28 @@
+[
+  {
+    "total": "74",
+    "untranslated": "64",
+    "needReview": "8",
+    "translated": "2",
+    "approved": "0",
+    "rejected": "0",
+    "translatedOnly": "0",
+    "fuzzy": "8",
+    "unit": "MESSAGE",
+    "locale": "fr",
+    "lastTranslated": "17/12/14 15:40 by wolverine"
+  },
+  {
+    "total": "74",
+    "untranslated": "0",
+    "needReview": "0",
+    "translated": "74",
+    "approved": "0",
+    "rejected": "0",
+    "translatedOnly": "0",
+    "fuzzy": "0",
+    "unit": "MESSAGE",
+    "locale": "en-us",
+    "lastTranslated": "17/12/14 12:02 by wolverine"
+  }
+]

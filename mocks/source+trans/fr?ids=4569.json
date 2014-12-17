@@ -1,0 +1,29 @@
+{
+  "4569": {
+    "source": {
+      "id": "3",
+      "lang": "en-US",
+      "content": null,
+      "contents": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "%s ipsums dolo sit amet, consecteturs adipiscing eliter."
+      ],
+      "plural": true,
+      "extensions": [],
+      "revision": 1,
+      "wordCount" : 8
+    },
+    "fr": {
+      "resId": "3",
+      "state": "NeedReview",
+      "content": null,
+      "contents": [
+        "Le Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        ""
+      ],
+      "extensions": [],
+      "revision": 1,
+      "textFlowRevision": 1
+    }
+  }
+}

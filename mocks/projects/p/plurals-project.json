@@ -1,0 +1,20 @@
+{
+  "id": "plurals-project",
+  "defaultType": "File",
+  "name": "Plurals Project",
+  "description": "A project that has plurals in its source document. Has a single version and document.",
+  "sourceViewURL": null,
+  "sourceCheckoutURL": null,
+  "links": null,
+  "iterations": [{
+    "id": "1",
+    "links" : [{
+      "href": "iterations/i/1",
+      "rel": "self",
+      "type": "application/vnd.zanata.project.iteration+json"
+    }],
+    "status": "ACTIVE",
+    "projectType": "File"
+  }],
+  "status": "ACTIVE"
+}

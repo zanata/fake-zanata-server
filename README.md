@@ -125,6 +125,17 @@ A minimal project with a single version containing a single document.
  - version: 1
  - document: hello.txt
 
+
+### Plurals Project
+
+A project that has plurals in its source document. Has a single version
+and document.
+
+ - id: plurals-project
+ - version: 1
+ - document: plurals.txt
+
+
 ## Endpoints
 
 Here is a list of the available endpoint URLs. Some are experimental

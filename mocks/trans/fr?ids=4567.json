@@ -1,0 +1,21 @@
+{
+  "4567": {
+    "fr": {
+      "resId": "1",
+      "state": "Translated",
+      "translator": {
+        "email": "wolverine@marvel.com",
+        "name": "James Logan Howlett",
+        "links": null
+      },
+      "content": null,
+      "contents": [
+        "Bonjour Le Monde",
+        "Bonjour Les Mondes"
+      ],
+      "extensions": [],
+      "revision": 1,
+      "textFlowRevision": 1
+    }
+  }
+}

@@ -12,27 +12,36 @@ var endpoints = [
   endpoint('/projects'),
   endpointWithAlias('/projects/p/tiny-project',
                     '/project/tiny-project'),
+  endpointWithAlias('/projects/p/plurals-project',
+                    '/project/plurals-project'),
 
   endpointWithAlias('/projects/p/tiny-project/iterations/i/1',
                     '/project/tiny-project/version/1'),
+  endpointWithAlias('/projects/p/plurals-project/iterations/i/1',
+                    '/project/plurals-project/version/1'),
 
   endpointWithAlias('/projects/p/tiny-project/iterations/i/1/r',
                     '/project/tiny-project/version/1/docs'),
+  endpointWithAlias('/projects/p/plurals-project/iterations/i/1/r',
+                    '/project/plurals-project/version/1/docs'),
 
   endpointWithAlias('/projects/p/tiny-project/iterations/i/1/r/hello.txt',
                     '/project/tiny-project/version/1/doc/hello.txt'),
+  endpointWithAlias('/projects/p/plurals-project/iterations/i/1/r/plurals.txt',
+                    '/project/plurals-project/version/1/doc/plurals.txt'),
 
 
 
   subEndpoints('/project/tiny-project/version/1/doc/hello.txt/status', ['/fr', '/en-US']),
+  subEndpoints('/project/plurals-project/version/1/doc/plurals.txt/status', ['/fr', '/en-US']),
 
-  subEndpoints('/source?ids=', ['1234', '1237', '1238']),
+  subEndpoints('/source?ids=', ['1234', '1237', '1238', '4567', '4568', '4569']),
   endpoint('/source', {}, {}),
   endpoint('/source', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
-  subEndpoints('/trans/fr?ids=', ['1234', '1237']),
+  subEndpoints('/trans/fr?ids=', ['1234', '1237', '4567', '4569']),
   // Initially no translation for this id, but overriden with put below.
   endpoint('/trans/fr?ids=1238', {}, {}),
   endpoint('/trans/fr', {}, {}),
@@ -73,17 +82,21 @@ var endpoints = [
                        .delay(config.latency);
   }),
 
-  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238']),
+  subEndpoints('/source+trans/fr?ids=', ['1234', '1237', '1238', '4567', '4568', '4569']),
   endpoint('/source+trans/fr', {}, {}),
   endpoint('/source+trans/fr', { ids: commaSeparatedNumeric }),
   badRequestEndpoint('/source+trans/fr', {ids: /.*/},
     {error: 'query param "ids" must be a comma-separated list of numbers'}),
 
   endpoint('/project/tiny-project/version/1/locales'),
+  endpoint('/project/plurals-project/version/1/locales'),
   
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt'),
+  endpoint('/stats/proj/plurals-project/iter/1/doc/plurals.txt'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/en-US'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/fr'),
+  endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/en-US'),
+  endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/fr'),
 
   endpoint('/user'),
   endpoint('/user/professor-x'),
