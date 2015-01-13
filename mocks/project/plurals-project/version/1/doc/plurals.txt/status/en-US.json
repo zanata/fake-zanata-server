@@ -1,5 +1,5 @@
 [
-  { "id": 4567, "resId": "1", "state": "Translated" },
-  { "id": 4568, "resId": "2", "state": "Untranslated" },
-  { "id": 4569, "resId": "3", "state": "NeedReview" }
+  { "id": 4567, "resId": "1", "status": "Translated" },
+  { "id": 4568, "resId": "2", "status": "New" },
+  { "id": 4569, "resId": "3", "status": "NeedReview" }
 ]
