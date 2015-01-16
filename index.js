@@ -35,6 +35,9 @@ var endpoints = [
   subEndpoints('/project/tiny-project/version/1/doc/hello.txt/status', ['/fr', '/en-US']),
   subEndpoints('/project/plurals-project/version/1/doc/plurals.txt/status', ['/fr', '/en-US']),
 
+  subEndpoints('/project/tiny-project/permission', ['/fr', '/en-US']),
+  subEndpoints('/project/plurals-project/permission', ['/fr', '/en-US']),
+
   subEndpoints('/source?ids=', ['1234', '1237', '1238', '4567', '4568', '4569']),
   endpoint('/source', {}, {}),
   endpoint('/source', { ids: commaSeparatedNumeric }),
@@ -90,7 +93,7 @@ var endpoints = [
 
   endpoint('/project/tiny-project/version/1/locales'),
   endpoint('/project/plurals-project/version/1/locales'),
-  
+
   endpoint('/stats/proj/tiny-project/iter/1/doc/hello.txt'),
   endpoint('/stats/proj/plurals-project/iter/1/doc/plurals.txt'),
   endpoint('/stats/project/tiny-project/version/1/doc/hello.txt/locale/en-US'),
