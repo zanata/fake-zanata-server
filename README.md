@@ -264,3 +264,13 @@ in the future.
           "gravatarHash" : "gravatar hash"
         }
      ```
+
+ - project/{projectSlug}/permission/{localeId}
+    - get user's permission in project under specified locale
+    - e.g.
+      ```
+         {
+           "write_translation" : true,
+           "review_translation" : false
+         }
+      ```
