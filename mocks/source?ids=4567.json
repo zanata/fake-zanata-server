@@ -5,8 +5,8 @@
       "lang": "en-US",
       "content": null,
       "contents": [
-        "Hello World",
-        "Hello Worlds"
+        "Hello World\n testing tab \t and space after  ",
+        "Hello Worlds\n"
       ],
       "plural": true,
       "extensions": [],
