@@ -229,6 +229,13 @@ in the future.
        resId is only unique within a document, and allowing both id and resId on
        the same resource could cause a lot of confusion.
 
+ - POST /suggestions/{sourceLocaleId}/{transLocaleId}
+   - optional query string ?searchType=FUZZY_PLURAL (real server supports other values)
+   - if searchType is not specified, the default is FUZZY_PLURAL
+   - body should be an array of strings to search for in the source locale,
+     representing the singular and plural forms of a string.
+   - an array containing a single string is acceptable.
+
  - PUT /trans/{localeId}
    - currently only implemented for the 3rd French string in tiny-project
    - save one or more translations, using their database id.

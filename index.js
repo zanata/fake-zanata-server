@@ -101,6 +101,9 @@ var endpoints = [
   endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/en-US'),
   endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/fr'),
 
+  postEndpoint('/suggestions/en-US/fr'),
+  postEndpoint('/suggestions/en-US/fr?searchType=FUZZY_PLURAL'),
+
   endpoint('/user'),
   endpoint('/user/professor-x'),
   endpoint('/user/wolverine')
@@ -191,6 +194,30 @@ function subEndpoints(prefix, suffixes) {
       createEndpointFromPath(path);
       console.log('  registered path %s', path);
     });
+  }
+}
+
+function postEndpoint (path) {
+  return function () {
+    // OPTIONS gives server permission to use CORS
+    server.createRoute({
+      request: {
+          url: path,
+          method: 'options',
+      },
+      response: {
+          code: 200,
+          delay: config.latency,
+          body: {},
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST'
+          }
+      }
+    });
+    server.post(path)
+          .body(getJSON(path));
+    console.log('  registered path %s', path);
   }
 }
 
