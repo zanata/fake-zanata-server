@@ -229,8 +229,8 @@ in the future.
        resId is only unique within a document, and allowing both id and resId on
        the same resource could cause a lot of confusion.
 
- - POST /suggestions/{sourceLocaleId}/{transLocaleId}
-   - optional query string ?searchType=FUZZY_PLURAL (real server supports other values)
+ - POST /suggestions?from={sourceLocaleId}&to={transLocaleId}
+   - optional query parameter searchType=FUZZY_PLURAL (real server supports other values)
    - if searchType is not specified, the default is FUZZY_PLURAL
    - body should be an array of strings to search for in the source locale,
      representing the singular and plural forms of a string.

@@ -101,8 +101,8 @@ var endpoints = [
   endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/en-US'),
   endpoint('/stats/project/plurals-project/version/1/doc/plurals.txt/locale/fr'),
 
-  postEndpoint('/suggestions/en-US/fr'),
-  postEndpoint('/suggestions/en-US/fr?searchType=FUZZY_PLURAL'),
+  postEndpoint('/suggestions', { from: 'en-US', to: 'fr' }),
+  postEndpoint('/suggestions', { from: 'en-US', to: 'fr', searchType: 'FUZZY_PLURAL' }),
 
   endpoint('/user'),
   endpoint('/user/professor-x'),
@@ -197,7 +197,7 @@ function subEndpoints(prefix, suffixes) {
   }
 }
 
-function postEndpoint (path) {
+function postEndpoint (path, query) {
   return function () {
     // OPTIONS gives server permission to use CORS
     server.createRoute({
@@ -216,6 +216,7 @@ function postEndpoint (path) {
       }
     });
     server.post(path)
+          .query(query || {})
           .body(getJSON(path));
     console.log('  registered path %s', path);
   }
