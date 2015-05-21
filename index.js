@@ -203,6 +203,7 @@ function postEndpoint (path, query) {
     server.createRoute({
       request: {
           url: path,
+          query: query || {},
           method: 'options',
       },
       response: {
