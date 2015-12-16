@@ -218,7 +218,8 @@ function postEndpoint (path, query) {
     });
     server.post(path)
           .query(query || {})
-          .body(getJSON(path));
+          .body(getJSON(path))
+          .delay(config.latency);
     console.log('  registered path %s', path);
   }
 }
