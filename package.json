@@ -1,6 +1,6 @@
 {
   "name": "fake-zanata-server",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A simple REST server that presents a REST API similar to Zanata Server",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "github.com/davidmason",
   "license": "MIT",
   "dependencies": {
-    "interfake": "^1.9.0",
+    "interfake": "1.11.0",
     "node-env-flag": "^0.1.0"
   },
   "devDependencies": {},
