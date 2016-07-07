@@ -45,17 +45,19 @@ REST endpoint listening at http://localhost:7878/zanata/rest, with latency 50..5
 You can change some settings with command-line flags:
 
 ```
-[prompt]$ npm start --port=1234 --latency=1000..5000 --path=rest
+[prompt]$ npm start --port=1234 --latency=1000..5000 --path=rest --alloworigin="http://localhost:9000"
 ...
 REST endpoint listening at http://localhost:1234/rest, with latency 1000..5000
 ```
 
+- --alloworigin: allowed origin protocol+domain+port for CORS requests, used in
+                 CORS preflight responses. Default: http://localhost:8080
+- --debug: true to show debugging information in the console. Default: false
+- --latency: milliseconds to delay each response. Can be a single number,
+             or a range in the form `minimum..maximum`. Default: 50..500
+- --path: path to prepend to the local portion of each resource URL.
+          Default: zanata/rest
  - --port: any available system port to listen on. Default: 7878
- - --path: path to prepend to the local portion of each resource URL.
-           Default: zanata/rest
- - --latency: milliseconds to delay each response. Can be a single number,
-            or a range in the form `minimum..maximum`. Default: 50..500
- - --debug: true to show debugging information in the console. Default: false
 
 
 Get resources from any of the endpoints listed under 'Endpoints' below:

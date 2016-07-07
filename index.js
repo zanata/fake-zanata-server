@@ -66,13 +66,19 @@ var endpoints = [
           delay: config.latency,
           body: {},
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, PUT'
+            'Access-Control-Allow-Origin': config.allowOrigin,
+            'Access-Control-Allow-Methods': 'GET, PUT',
+            'Access-Control-Allow-Credentials': 'true'
           }
       }
     });
     var putEndpoint = server.put('/trans/fr')
                             .status(200)
+                            .responseHeaders({
+                              'Access-Control-Allow-Origin': config.allowOrigin,
+                              'Access-Control-Allow-Methods': 'GET, PUT',
+                              'Access-Control-Allow-Credentials': 'true'
+                            })
                             .body({revision: 2, status: 'translated'})
                             .delay(config.latency);
     putEndpoint.creates.get('/trans/fr?ids=1238')
@@ -211,13 +217,19 @@ function postEndpoint (path, query) {
           delay: config.latency,
           body: {},
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'POST'
+            'Access-Control-Allow-Origin': config.allowOrigin,
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Credentials': 'true'
           }
       }
     });
     server.post(path)
           .query(query || {})
+          .responseHeaders({
+            'Access-Control-Allow-Origin': config.allowOrigin,
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Credentials': 'true'
+          })
           .body(getJSON(path))
           .delay(config.latency);
     console.log('  registered path %s', path);
@@ -249,6 +261,25 @@ function createEndpointFromPath(path, query, filePath) {
  * Registers an endpoint using the given response body.
  */
 function createEndpointFromObject(path, query, body) {
+  // OPTIONS gives server permission to use CORS
+  server.createRoute({
+    request: {
+        url: path,
+        query: query || {},
+        method: 'options',
+    },
+    response: {
+        code: 200,
+        delay: config.latency,
+        body: {},
+        headers: {
+          'Access-Control-Allow-Origin': config.allowOrigin,
+          // allow several methods since some endpoints are writable
+          'Access-Control-Allow-Methods': 'GET, PUT, POST',
+          'Access-Control-Allow-Credentials': 'true'
+        }
+    }
+  });
   return server.get(path)
                .query(query)
                .body(body)

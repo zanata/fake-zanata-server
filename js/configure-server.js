@@ -3,6 +3,7 @@ var Interfake = require('interfake'),
 
 var port = process.env.npm_config_port || 7878;
 var path = process.env.npm_config_path || 'zanata/rest';
+var allowOrigin = process.env.npm_config_alloworigin || 'http://localhost:8080';
 var debug = flag(process.env.npm_config_debug, false);
 
 /**
@@ -30,6 +31,7 @@ var options = {
 var interfake = new Interfake(options);
 
 function logDetails () {
+  console.log('Allowed origin for CORS: %s', allowOrigin);
   console.log('REST endpoint listening at http://localhost:%d/%s, with latency %s', port, path, latency);
 }
 
@@ -37,5 +39,6 @@ module.exports = {
   server: interfake,
   latency: latency,
   port: port,
+  allowOrigin: allowOrigin,
   logDetails: logDetails
 }
