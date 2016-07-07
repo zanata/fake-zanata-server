@@ -282,6 +282,11 @@ function createEndpointFromObject(path, query, body) {
   });
   return server.get(path)
                .query(query)
+               .responseHeaders({
+                 'Access-Control-Allow-Origin': config.allowOrigin,
+                 'Access-Control-Allow-Methods': 'GET, PUT, POST',
+                 'Access-Control-Allow-Credentials': 'true'
+               })
                .body(body)
                .delay(config.latency);
 }
